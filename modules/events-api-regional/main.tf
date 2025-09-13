@@ -15,8 +15,11 @@ resource "aws_appsync_api" "regional" {
           }
         }
         dynamic "lambda_authorizer_config" {
-          authorizer_uri                   = var.authorizer_lambda_arn
-          authorizer_result_ttl_in_seconds = 300
+          for_each = "AWS_LAMBDA" == local.authentication_type ? { x: 1 } : {}
+          content {
+            authorizer_uri                   = var.authorizer_lambda_arn
+            authorizer_result_ttl_in_seconds = 300
+          }
         }
       }
       connection_auth_mode {
