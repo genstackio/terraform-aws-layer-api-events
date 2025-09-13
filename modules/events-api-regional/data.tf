@@ -6,7 +6,7 @@ data "aws_iam_policy_document" "log-assume-role" {
     actions = ["sts:AssumeRole"]
     principals {
       type = "Service"
-      identifiers = "appsync.amazonaws.com"
+      identifiers = ["appsync.amazonaws.com"]
     }
   }
 }
