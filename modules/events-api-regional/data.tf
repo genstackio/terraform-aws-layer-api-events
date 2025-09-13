@@ -11,9 +11,10 @@ data "aws_iam_policy_document" "log-assume-role" {
   }
 }
 data "aws_iam_policy_document" "log" {
+  count = var.log_enabled ? 1 : 0
   statement {
       actions   = ["logs:CreateLogStream", "logs:PutLogEvents"]
-      resources = [aws_cloudwatch_log_group.log.arn]
+      resources = [aws_cloudwatch_log_group.log[0].arn]
       effect    = "Allow"
   }
 }

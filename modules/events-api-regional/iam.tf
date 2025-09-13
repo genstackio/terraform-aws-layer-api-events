@@ -8,6 +8,6 @@ resource "aws_iam_role_policy" "log" {
   count       = var.log_enabled ? 1 : 0
   name        = "api-event-${var.name}-policy-log"
   name_prefix = null
-  policy      = data.aws_iam_policy_document.log.json
+  policy      = data.aws_iam_policy_document.log[0].json
   role        = aws_iam_role.log.id
 }

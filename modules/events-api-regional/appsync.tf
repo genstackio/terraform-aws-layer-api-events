@@ -1,5 +1,5 @@
 resource "aws_appsync_api" "regional" {
-  name                = var.name
+  name = var.name
 
   event_config {
     auth_provider {
