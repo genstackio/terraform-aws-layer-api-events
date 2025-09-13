@@ -42,7 +42,7 @@ resource "aws_appsync_domain_name" "regional" {
 
 resource "aws_appsync_domain_name_api_association" "regional" {
   count       = local.custom_domain ? 1 : 0
-  api_id      = aws_appsync_api.regional.id
+  api_id      = aws_appsync_api.regional.api_id
   domain_name = aws_appsync_domain_name.regional[0].domain_name
 }
 
