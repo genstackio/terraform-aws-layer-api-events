@@ -17,7 +17,7 @@ variable "dns_zone" {
   type    = string
   default = null
 }
-variable "log_enabled" {
-  type    = bool
-  default = false
+variable "log_level" {
+  type    = string
+  default = null
 }

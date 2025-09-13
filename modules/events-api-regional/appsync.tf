@@ -28,6 +28,13 @@ resource "aws_appsync_api" "regional" {
     default_subscribe_auth_mode {
       auth_type = local.authentication_type
     }
+    dynamic "log_config" {
+      for_each = local.log_enabled ? { x: 1 } : {}
+      content {
+        cloudwatch_logs_role_arn = aws_iam_role.log[0].arn
+        log_level                = var.log_level
+      }
+    }
   }
 }
 
