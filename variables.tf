@@ -17,3 +17,7 @@ variable "authorizer_lambda_arn" {
   type    = string
   default = null
 }
+variable "log_enabled" {
+  type    = bool
+  default = false
+}

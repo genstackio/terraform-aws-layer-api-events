@@ -6,6 +6,7 @@ module "regional-api" {
   dns_zone              = var.dns_zone
   user_pool_id          = var.user_pool_id
   authorizer_lambda_arn = var.authorizer_lambda_arn
+  log_enabled           = var.log_enabled
 
   providers    = {
     aws     = aws
